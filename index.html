@@ -1,0 +1,104 @@
+<!-- <label>Image File:</label> -->
+<!-- <input type="file" id="imageLoader" name="imageLoader" /> -->
+<!-- <canvas id="imageCanvas"></canvas>
+<canvas id="newImageCanvas"></canvas> -->
+<!-- <script src="index.js"></script> -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Proceso digital de imágenes</title>
+        <meta charset="UTF-8">
+    </head>
+
+    <body>
+        <div class="titulo">
+            <h1>Proceso digital de imágenes</h1>
+        </div>
+        <!-- "Instrucciones" -->
+        <div class="container">
+            <h2>Instrucciones</h2>
+            <hr>
+            <div class="instrucciones">
+                <b>(1) Escoger la imagen:</b>
+                Utilizar el botón "Seleccionar Archivo" para escoger la imagen.
+                <br>
+            </div>
+            <div class="instrucciones">
+                <b>(2) Aplicar el filtro:</b>
+                Una vez que haya cargado la imagen deseada en la sección <b>3</b>,
+                presionar uno de los botones para aplicar los filtros. Es necesario
+                presionar el botón <i>Cargar</i> o <i>Limpiar Filtro</i> antes de volver a aplicar otro filtro
+                o, de lo contrario, se aplicarán múltiples filtros a la misma imagen.
+                Para el filtro <i>mosaico</i> es necesario especificar el tamaño con el
+                que se trabajará antes de presionar el respectivo botón.
+                <br>
+            </div>
+            <div class="instrucciones">
+                <b>(3) Observar el resultado:</b>
+                Aquí se mostrará la imagen cuando se cargue, cuando se le apliquen
+                filtros, etc. Además, aquí se indicará cualquier error que surja durante
+                la ejecución del programa.
+            </div>
+            <div class="instrucciones">
+                <b>(4) Descarga tu imagen:</b>
+                Utiliza el botón <i>Descargar</i> para descargar tu imagen.
+            </div>
+
+            <!-- Botón para escoger la imagen por manipular -->
+            <h4 class="subtitle">(1) Imagen</h4>
+            <div class="divBotonImagen">
+                <span>
+                    <input type="file" id="imageLoader" name="imageLoader" />
+                </span>
+                <!-- <button id="botonCargar" class="btn btn-default" onclick="cargar();verSeccionTwo();">Cargar</button> -->
+            </div>
+
+            <!-- Botones para aplicar los filtros a la imagen actual -->
+            <div id="seccionDos">
+                <h4 class="subtitle">(2) Filtro</h4>
+                <div class="divBotonesFiltro">
+                    <button id="botonR" class="btn btn-danger btn-default" onclick="filtrosRGB(this)">Filtro rojo</button>
+                    <button id="botonG" class="btn btn-success btn-default" onclick="filtrosRGB(this)">Filtro verde</button>
+                    <button id="botonB" class="btn btn-primary btn-default" onclick="filtrosRGB(this)">Filtro azul</button>
+                    <button id="botonM" class="btn btn-warning btn-default" onclick="filtroMosaico()">Filtro mosaico</button>
+                    <button id="botonM" class="btn btn-default" onclick="limpiarImagen()">Limpiar Filtro</button>
+                    <div class="filtro">
+                        <br>
+                        <b>Tamaño:</b>
+                        <input id="botonTam" class="form-control" type="text">
+                    </div>                
+                </div>
+            </div>
+
+            <div id="seccionTres">
+                <!-- Canvas que enseña la imagen -->
+                <h4 class="subtitle">(3) Resultado</h4>
+                <div class="textoError"></div>
+                <div class="row"> 
+                    <div class="col-sm-6">               
+                        <div class="divCanvas">
+                            <h6>Imagen Original:</h6>
+                            <canvas id="imageCanvas"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">               
+                        <div class="divCanvas">
+                            <h6>Imagen Alterada:</h6>
+                            <canvas id="newImageCanvas"></canvas>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="seccionCuatro">
+                <h4 class="subtitle">(4) Descargar</h4>
+            	<a id="download" download="Descarga.png">
+				<button type="button" onClick="download()">Descargar</button>
+				</a>
+            </div>
+
+        <script src="index.js"></script>
+    </body>
+</html>
