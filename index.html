@@ -20,23 +20,24 @@
             </div>
             <div class="instrucciones">
                 <b>(2) Aplicar el filtro:</b>
-                Una vez que haya cargado la imagen deseada en la sección <b>3</b>,
-                presionar uno de los botones para aplicar los filtros. Es necesario
-                presionar el botón <i>Cargar</i> o <i>Limpiar Filtro</i> antes de volver a aplicar otro filtro
-                o, de lo contrario, se aplicarán múltiples filtros a la misma imagen.
-                Para el filtro <i>mosaico</i> es necesario especificar el tamaño con el
+                Una vez que nuestra imagen aparezca en la tercera sección será necesario
+                presionar uno de los botones para aplicar los filtros. 
+                <br>
+                Para el filtro <i>Mosaico</i> es necesario especificar el tamaño con el
                 que se trabajará antes de presionar el respectivo botón.
+                <br>
+                Para el filtro <i>Brillo</i> la barra deslizadora aplicará como constante
+                el número del que resulte el primer de desliz.
                 <br>
             </div>
             <div class="instrucciones">
                 <b>(3) Observar el resultado:</b>
-                Aquí se mostrará la imagen cuando se cargue, cuando se le apliquen
-                filtros, etc. Además, aquí se indicará cualquier error que surja durante
-                la ejecución del programa.
+                Podremos observar la imagen original y aquella que sufrió los cambios 
+                aplicados por nuestros filtros, i.e., la imagen alterada.
             </div>
             <div class="instrucciones">
                 <b>(4) Descarga tu imagen:</b>
-                Utiliza el botón <i>Descargar</i> para descargar tu imagen.
+                Utiliza el botón <i>Descargar</i> para descargar tu imagen alterada.
             </div>
 
             <!-- Botón para escoger la imagen por manipular -->
@@ -66,7 +67,12 @@
                         <br>
                         <b>Tamaño:</b>
                         <input id="botonTam" class="form-control" type="text">
-                    </div>                
+                    </div>
+                    <div class="slidecontainer">
+                        <br>
+                        <b>Brillo:</b>
+                        <input type="range" min="-255" max ="255" value="0" class="slider" id="myRange" onclick="brillo(this)">
+                    </div>                 
                 </div>
             </div>
 
@@ -93,9 +99,9 @@
 
             <div id="seccionCuatro">
                 <h4 class="subtitle">(4) Descargar</h4>
-            	<a id="download" download="Descarga.png">
-				<button type="button" onClick="download()">Descargar</button>
-				</a>
+                <a id="download" download="Descarga.png">
+                <button type="button" onClick="download()">Descargar</button>
+                </a>
             </div>
 
         <script src="index.js"></script>

@@ -6,8 +6,11 @@ var ctx = canvas.getContext('2d');
 var newCtx = newCanvas.getContext('2d');
 
 
+// Lee el archivo que haya en el
+// elemento "input" del HTML.
 function handleImage(e) {
 
+  // Leemos el archivo
   var reader = new FileReader();
   reader.onload = function(event) {
     onReaderLoad(event);
@@ -16,13 +19,17 @@ function handleImage(e) {
   reader.readAsDataURL(e.target.files[0]);
 }
 
+// Actualiza la imagen que se visualiza en el canvas.
 var onReaderLoad = function(event) {
+  // Se crea una imagen.
   var image = new Image();
   var newImage = new Image();
 
+  // Se dice cuál es la imagen que se cargará.
   image.src = event.target.result;
   newImage.src = event.target.result;
   
+  // Cuando se termine de "crear" la imagen...
   image.onload = function() {
     onImageLoad(image);
   }
@@ -35,12 +42,14 @@ var onReaderLoad = function(event) {
 var onImageLoad = function(img) {
   canvas.width = img.width/2;
   canvas.height = img.height/2;
+  // ...ésta se dibuja en el canvas.
   ctx.drawImage(img, 0, 0,canvas.width,canvas.height);
 }
 
 var onNewImageLoad = function(img) {
   newCanvas.width = img.width/2;
   newCanvas.height = img.height/2;
+  // ...ésta se dibuja en el canvas.
   newCtx.drawImage(img, 0, 0,canvas.width,canvas.height);
 }
 
@@ -56,8 +65,11 @@ function download() {
 //Tarea 1
 
 function filtrosT1(elemento) {
+  // Se obtiene "data", arreglo con la información
+  // de los pixeles de la imagen en el canvas.
   var context = newCanvas.getContext("2d");
   var imageData = context.getImageData(0, 0, newCanvas.width, newCanvas.height);
+
   switch (elemento.id) {
     case "Gris 1":
       context.putImageData(gris1(imageData),0,0);
@@ -89,7 +101,8 @@ function filtrosT1(elemento) {
   }
 }
 
-
+// Función 1: Promediando (i.e., rápido y sucio).
+// Gray = (Red + Green + Blue) / 3
 function gris1(imageData) {
   var data = imageData.data;
   for (var i = 0; i < data.length; i+=4){
@@ -101,6 +114,8 @@ function gris1(imageData) {
   return imageData;
 }
 
+// Función 2: Corrección para el ojo humano.
+// Gray = (Red * 0.3 + Green * 0.59 + Blue * 0.11)
 function gris2(imageData) {
   var data = imageData.data;
   for (var i = 0; i < data.length; i+=4){
@@ -112,6 +127,8 @@ function gris2(imageData) {
   return imageData;
 }
 
+// Función 3: Luma. Recomendación (BT.709).
+// Gray = (Red * 0.2126 + Green * 0.7152 + Blue * 0.0722)
 function gris3(imageData) {
   var data = imageData.data;
   for (var i = 0; i < data.length; i+=4){
@@ -123,6 +140,8 @@ function gris3(imageData) {
   return imageData;
 }
 
+// Función 4: Desaturación.
+// Gray = ( Max(Red, Green, Blue) + Min(Red, Green, Blue) ) / 2
 function gris4(imageData) {
   var data = imageData.data;
   for (var i = 0; i < data.length; i+=4){
@@ -134,6 +153,8 @@ function gris4(imageData) {
   return imageData;
 }
 
+// Función 5: Descomposición máxima.
+// Gray = Max(Red, Green, Blue)
 function gris5(imageData) {
   var data = imageData.data;
   for (var i = 0; i < data.length; i+=4){
@@ -145,6 +166,8 @@ function gris5(imageData) {
   return imageData;
 }
 
+// Función 6: Descomposición mínima.
+// Gray = Min(Red, Green, Blue)
 function gris6(imageData) {
   var data = imageData.data;
   for (var i = 0; i < data.length; i+=4){
@@ -156,6 +179,8 @@ function gris6(imageData) {
   return imageData;
 }
 
+// Función 7: Escala de grises generada utilizando solo valores de canal rojo.
+// Gray = Red
 function gris7(imageData) {
   var data = imageData.data;
   for (var i = 0; i < data.length; i+=4){
@@ -167,6 +192,8 @@ function gris7(imageData) {
   return imageData;
 }
 
+// Función 8: Escala de grises generada utilizando solo valores de canal verde
+// Gray = Green
 function gris8(imageData) {
   var data = imageData.data;
   for (var i = 0; i < data.length; i+=4){
@@ -178,6 +205,8 @@ function gris8(imageData) {
   return imageData;
 }
 
+// Función 9: Escala de grises generada utilizando solo valores de canal azul
+// Gray = Blue
 function gris9(imageData) {
   var data = imageData.data;
   for (var i = 0; i < data.length; i+=4){
@@ -190,57 +219,140 @@ function gris9(imageData) {
 }
 
 
+// Función brillo: 
+// Sumar o restar una constante a cada componente de cada pixel.
+function brillo() {
+  //Obtenemos el valor del slider.
+  var value = document.getElementById("myRange").value;
+
+  // Se obtiene "data", arreglo con la información
+  // de los pixeles de la imagen en el canvas.
+  var context = newCanvas.getContext("2d");
+  var imageData = context.getImageData(0, 0, newCanvas.width, newCanvas.height);
+  var data = imageData.data;
+
+  // Función mayor:
+  // Verifica si el valor es mayor a 255, si la condición se cumple,
+  // se le asigna 255 al valor recibido.
+  function mayor(valor) {
+    if(valor >255){
+      valor = 255
+    }
+  }
+
+  // Función menor: 
+  // Verifica si el valor es menor a 0, si la condición se cumple,
+  // se le asigna 0 al valor recibido.
+  function menor(valor) {
+    if(valor < 0){
+      valor = 0
+    }
+  }
+
+  // Recorremos los pixeles y le sumamos el valor recibido por
+  // el slider.
+  for (var i = 0; i < data.length; i+=4){
+    data[i] += value;
+    data[i+1] += value;
+    data[i+2] += value;
+
+    // Verificamos si el valor es mayor a 255.
+    mayor(data[i]);
+    mayor(data[i+1]);
+    mayor(data[i+2]);
+
+    // Verificamos si el valor es menor a 0.
+    menor(data[i]);
+    menor(data[i+1]);
+    menor(data[i+2]);
+  }
+
+  //Pinta los datos ya modificados en el canvas.
+  context.putImageData(imageData,0,0)
+}
+
+// Función mosaico:
 function filtroMosaico() {
+  // Se obtiene el valor del tamaño.
   var tam = document.getElementById("botonTam").value;
 
+  // Si no se especifica un tamaño...
   if (tam == "") {
     error("Ingresa un valor en <i>Tamaño</i>.");
     return;
   }
 
+  // Si el tamaño no es un número...
   if (isNaN(tam)) {
     error("El valor en <i>Tamaño</i> debe ser un número.");
     return;
   }
 
+  // Si sí es, se convierte en "int".
   else tam = parseInt(tam);
 
+  // Se obtiene "data", arreglo con la información
+  // de los pixeles de la imagen en el canvas.
   var context = newCanvas.getContext("2d");
   var imageData = context.getImageData(0, 0, newCanvas.width, newCanvas.height);
   var data = imageData.data;
 
+  // Se nombra el ancho y alto del canvas.
   var height = newCanvas.height;
   var width = newCanvas.width;
 
+  // Función que calcula el color promedio [R, G, B]
+  // de una casilla dado el pixel (x, y) utilizando
+  // el tamaño especificado previamente.
   function calcularPromedio(x, y) {
+
+    // Color promedio en R, G y B respectivamente.
     var r = 0;
     var g = 0;
     var b = 0;
 
+    // Se lleva un conteo de los pixeles tomados
+    // en cuenta para no contar pixeles fuera de
+    // la imagen al momento de calcular el promedio.
     var count = 0;
 
+    // Se recorre cada uno de los pixeles de la casilla
+    // en donde cada pixel tiene coordenadas (j, k).
     for (var j = y; j < y + tam; j++)
       for (var k = x; k < x + tam; k++) {
-
+        // Si j y/o k se sale de la imagen, ya no
+        // se cuenta en el promedio del color.
         if (k >= width || j >= height) continue;
-
+        // Dado el pixel (j, k), se evalúa en qué
+        // parte del arreglo "data" se encuentra
+        // la información de dicho pixel.
         var i = (k + j * width) * 4;
+        // Se suman los colores respectivos de
+        // cada pixel al promedio y se incrementa
+        // el conteo.
         r += data[i];
         g += data[i + 1];
         b += data[i + 2];
         count++;
       }
 
+    // Se calcula el promedio de cada color y se
+    // devuelve en un arreglo de la forma [R, G, B].
     r = Math.round(r / count);
     g = Math.round(g / count);
     b = Math.round(b / count);
     return [r, g, b];
-  } 
+  }  // ----- Fin de calcularPromedio() -----
 
+  // Se recorre cada casilla de tamaño "tam" que se
+  // encuentra en la posición del pixel "x" y "y".
   for (var y = 0; y < height; y += tam) {
     for (var x = 0; x < width; x += tam) {
+      // Se guarda el color [R, G, B] promedio de la casilla.
       var arr = calcularPromedio(x, y);
+      // Se dice qué color (el anterior) se pintará.
       context.fillStyle = "rgb(" + arr[0] + ", " + arr[1] + ", " + arr[2] + ")";
+      // Se pinta toda la casilla con ese color.
       context.fillRect(x, y, tam, tam);
     }
   }
