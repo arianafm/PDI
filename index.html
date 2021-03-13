@@ -39,6 +39,10 @@
                 <b>(4) Descarga tu imagen:</b>
                 Utiliza el botón <i>Descargar</i> para descargar tu imagen alterada.
             </div>
+            <div class="instrucciones">
+                <i>Nota:</i> Por el momento no tenemos un botón de limpiar imagen, por lo que 
+                en caso de querer agregar otro filtro, será necesario comenzar desde la primera instrucción
+            </div>
 
             <!-- Botón para escoger la imagen por manipular -->
             <h4 class="subtitle">(1) Imagen</h4>
@@ -61,10 +65,12 @@
                     <button id="Gris 7" class="btn btn-primary btn-default" onclick="filtrosT1(this)">Gris 7</button>
                     <button id="Gris 8" class="btn btn-primary btn-default" onclick="filtrosT1(this)">Gris 8</button>
                     <button id="Gris 9" class="btn btn-primary btn-default" onclick="filtrosT1(this)">Gris 9</button>
-                    <button id="botonM" class="btn btn-warning btn-default" onclick="filtroMosaico()">Mosaico</button>
-                    <button id="botonL" class="btn btn-default" onclick="limpiarImagen()">Limpiar Filtro</button>
+                    
+                    <!-- <button id="botonL" class="btn btn-default" onclick="limpiarImagen()">Limpiar Filtro</button> -->
                     <div class="filtro">
                         <br>
+                        <button id="botonM" class="btn btn-warning btn-default" onclick="filtroMosaico()">Mosaico</button>
+                        
                         <b>Tamaño:</b>
                         <input id="botonTam" class="form-control" type="text">
                     </div>
