@@ -61,6 +61,17 @@ function download() {
   //download.setAttribute("download","archive.png");
 }
 
+// Despliega un pequeño mensaje de error
+// arriba del canvas.
+function error(string) {
+  // Se ubica el elemento que contendrá el mensaje.
+  var texto = document.getElementsByClassName("textoError")[0];
+  // Se escribe el error.
+  texto.innerHTML = "ERROR: " + string;
+  // Si "string" es vacío, es porque se quiere borrar
+  // cualquier error escrito previamente.
+  if (string == "") texto.innerHTML = string;
+}
 
 //Tarea 1
 
@@ -278,13 +289,13 @@ function filtroMosaico() {
 
   // Si no se especifica un tamaño...
   if (tam == "") {
-    error("Ingresa un valor en <i>Tamaño</i>.");
+    error("Ingresa un valor en <i>Tamaño</i>. (Filtro: Mosaico) ");
     return;
   }
 
   // Si el tamaño no es un número...
   if (isNaN(tam)) {
-    error("El valor en <i>Tamaño</i> debe ser un número.");
+    error("El valor en <i>Tamaño</i> debe ser un número. (Filtro: Mosaico)");
     return;
   }
 
@@ -356,5 +367,113 @@ function filtroMosaico() {
       context.fillRect(x, y, tam, tam);
     }
   }
+
+}
+
+//Tarea 2
+
+function filtrosT2(elemento) {
+  // Se obtiene "data", arreglo con la información
+  // de los pixeles de la imagen en el canvas.
+  var context = newCanvas.getContext("2d");
+  var imageData = context.getImageData(0, 0, newCanvas.width, newCanvas.height);
+
+  switch (elemento.id) {
+    case "Alto Contraste":
+      context.putImageData(altoContraste(imageData),0,0);
+      break;
+    case "Inverso":
+        context.putImageData(inverso(imageData),0,0);
+        break;
+    case "componentesRGB":
+        context.putImageData(componentesRGB(imageData),0,0);
+        break;
+  }
+}
+
+
+function altoContraste(imageData) {
+  var data = imageData.data;
+  
+  function aux(valor) {
+    if(valor > 127){
+      return 255;
+    }else{
+      return 0;
+    }
+  }
+
+  for (var i = 0; i < data.length; i+=4){
+    const luma = (data[i]*0.2126 + data[i+1]*0.7152 + data[i+2]*0.0722) ;
+    data[i] = luma;
+    data[i+1] = luma;
+    data[i+2] = luma;
+
+    data[i] = aux(data[i]);
+    data[i+1] = aux(data[i+1]);
+    data[i+2] = aux(data[i+2]);
+  }
+
+  return imageData;
+
+}
+
+function inverso(imageData) {
+  var data = imageData.data;
+  
+  function aux(valor) {
+    if(valor > 127){
+      return 0;
+    }else{
+      return 255;
+    }
+  }
+
+  for (var i = 0; i < data.length; i+=4){
+    const luma = (data[i]*0.2126 + data[i+1]*0.7152 + data[i+2]*0.0722) ;
+    data[i] = luma;
+    data[i+1] = luma;
+    data[i+2] = luma;
+
+    data[i] = aux(data[i]);
+    data[i+1] = aux(data[i+1]);
+    data[i+2] = aux(data[i+2]);
+  }
+
+  return imageData;
+
+}
+
+function componentesRGB(imageData) {
+  var data = imageData.data;
+  
+  // Se obtiene el valor que se le quiere agregar a rojo.
+  var rojo_rgb = document.getElementById("RGB_Rojo").value;
+  
+  // Se obtiene el valor que se le quiere agregar a verde.
+  var verde_rgb = document.getElementById("RGB_Verde").value;
+  // Se obtiene el valor que se le quiere agregar a azul.
+  var azul_rgb = document.getElementById("RGB_Azul").value;
+
+  // Si no se especifica un valor...
+  if (rojo_rgb == "" || verde_rgb == "" || azul_rgb == "") {
+    error("Asegurate de haber ingresado un valor para cada color. (Filtro: Componentes RGB)");
+    return;
+  }
+
+  // Si algún valor no es un número...
+  if (isNaN(rojo_rgb) || isNaN(verde_rgb) || isNaN(azul_rgb)) {
+    error("El valor debe ser un número. (Filtro: Componentes RGB)");
+    return;
+  }
+
+  for (var i = 0; i < data.length; i+=4){
+    data[i] = parseInt(data[i]) + parseInt(rojo_rgb);
+    data[i+1] = parseInt(data[i+1]) + parseInt(verde_rgb);
+    data[i+2] = parseInt(data[i+2]) + parseInt(azul_rgb);
+  }
+
+  
+  return imageData;
 
 }

@@ -23,9 +23,6 @@
                 Una vez que nuestra imagen aparezca en la tercera sección será necesario
                 presionar uno de los botones para aplicar los filtros. 
                 <br>
-                Para el filtro <i>Mosaico</i> es necesario especificar el tamaño con el
-                que se trabajará antes de presionar el respectivo botón.
-                <br>
                 Para el filtro <i>Brillo</i> la barra deslizadora aplicará como constante
                 el número del que resulte el primer de desliz.
                 <br>
@@ -79,6 +76,24 @@
                         <b>Brillo:</b>
                         <input type="range" min="-255" max ="255" value="0" class="slider" id="myRange" onclick="brillo(this)">
                     </div>                 
+                </div>
+                <div class="divBotonesFiltro">
+                    <br>
+                    <button id="Alto Contraste" class="btn btn-danger btn-default" onclick="filtrosT2(this)">Alto Contraste</button>
+                    <button id="Inverso" class="btn btn-danger btn-default" onclick="filtrosT2(this)">Inverso</button>
+                     
+                    
+                    <div class="filtro">
+                        <br>
+                        <button id="componentesRGB" class="btn btn-danger btn-default" onclick="filtrosT2(this)">Componentes RGB</button> 
+                        
+                        <b>Rojo (0 a 255):</b>
+                        <input id="RGB_Rojo" class="form-control" type="text">
+                        <b>Verde (0 a 255):</b>
+                        <input id="RGB_Verde" class="form-control" type="text">
+                        <b>Azul (0 a 255):</b>
+                        <input id="RGB_Azul" class="form-control" type="text">
+                    </div>
                 </div>
             </div>
 
