@@ -23,9 +23,6 @@
                 Una vez que nuestra imagen aparezca en la tercera sección será necesario
                 presionar uno de los botones para aplicar los filtros. 
                 <br>
-                Para el filtro <i>Brillo</i> la barra deslizadora aplicará como constante
-                el número del que resulte el primer de desliz.
-                <br>
             </div>
             <div class="instrucciones">
                 <b>(3) Observar el resultado:</b>
@@ -52,7 +49,11 @@
             <!-- Botones para aplicar los filtros a la imagen actual -->
             <div id="seccionDos">
                 <h4 class="subtitle">(2) Filtro</h4>
+                <div>
+                    <button id="botonL" class="btn btn-default" onclick="limpiarImagen(this)">Limpiar Imagen</button> 
+                </div>
                 <div class="divBotonesFiltro">
+                    <br>
                     <button id="Gris 1" class="btn btn-danger btn-default" onclick="filtrosT1(this)">Gris 1</button>
                     <button id="Gris 2" class="btn btn-success btn-default" onclick="filtrosT1(this)">Gris 2</button>
                     <button id="Gris 3" class="btn btn-primary btn-default" onclick="filtrosT1(this)">Gris 3</button>
@@ -63,7 +64,6 @@
                     <button id="Gris 8" class="btn btn-primary btn-default" onclick="filtrosT1(this)">Gris 8</button>
                     <button id="Gris 9" class="btn btn-primary btn-default" onclick="filtrosT1(this)">Gris 9</button>
                     
-                    <!-- <button id="botonL" class="btn btn-default" onclick="limpiarImagen()">Limpiar Filtro</button> -->
                     <div class="filtro">
                         <br>
                         <button id="botonM" class="btn btn-warning btn-default" onclick="filtroMosaico()">Mosaico</button>
@@ -74,7 +74,7 @@
                     <div class="slidecontainer">
                         <br>
                         <b>Brillo:</b>
-                        <input type="range" min="-255" max ="255" value="0" class="slider" id="myRange" onclick="brillo(this)">
+                        <input type="range" min="-255" max ="255" value="0" class="slider" id="myRange" onclick="brillo(this)" oninput="limpiarImagen()">
                     </div>                 
                 </div>
                 <div class="divBotonesFiltro">

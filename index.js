@@ -5,17 +5,20 @@ var newCanvas = document.getElementById('newImageCanvas');
 var ctx = canvas.getContext('2d');
 var newCtx = newCanvas.getContext('2d');
 
+var archivo;
+
 
 // Lee el archivo que haya en el
 // elemento "input" del HTML.
 function handleImage(e) {
-
+  
   // Leemos el archivo
   var reader = new FileReader();
   reader.onload = function(event) {
     onReaderLoad(event);
+    archivo = event;
   }
-
+  
   reader.readAsDataURL(e.target.files[0]);
 }
 
@@ -61,6 +64,10 @@ function download() {
   //download.setAttribute("download","archive.png");
 }
 
+function limpiarImagen() {
+  onReaderLoad(archivo);
+}
+
 // Despliega un pequeño mensaje de error
 // arriba del canvas.
 function error(string) {
@@ -72,6 +79,7 @@ function error(string) {
   // cualquier error escrito previamente.
   if (string == "") texto.innerHTML = string;
 }
+
 
 //Tarea 1
 
@@ -267,9 +275,6 @@ function brillo() {
   // Recorremos los pixeles y le sumamos el valor recibido por
   // el slider.
   for (var i = 0; i < data.length; i+=4){
-    //data[i] += value;
-    //data[i+1] += value;
-    //data[i+2] += value;
 
     data[i] = parseInt(data[i]) + parseInt(value);
     data[i+1] = parseInt(data[i+1]) + parseInt(value);
