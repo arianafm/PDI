@@ -247,7 +247,9 @@ function brillo() {
   // se le asigna 255 al valor recibido.
   function mayor(valor) {
     if(valor >255){
-      valor = 255
+      return 255;
+    }else{
+      return valor;
     }
   }
 
@@ -256,26 +258,32 @@ function brillo() {
   // se le asigna 0 al valor recibido.
   function menor(valor) {
     if(valor < 0){
-      valor = 0
+      return  0;
+    }else{
+      return valor;
     }
   }
 
   // Recorremos los pixeles y le sumamos el valor recibido por
   // el slider.
   for (var i = 0; i < data.length; i+=4){
-    data[i] += value;
-    data[i+1] += value;
-    data[i+2] += value;
+    //data[i] += value;
+    //data[i+1] += value;
+    //data[i+2] += value;
+
+    data[i] = parseInt(data[i]) + parseInt(value);
+    data[i+1] = parseInt(data[i+1]) + parseInt(value);
+    data[i+2] = parseInt(data[i+2]) + parseInt(value);
 
     // Verificamos si el valor es mayor a 255.
-    mayor(data[i]);
-    mayor(data[i+1]);
-    mayor(data[i+2]);
+    data[i] = mayor(data[i]);
+    data[i+1] = mayor(data[i+1]);
+    data[i+2] = mayor(data[i+2]);
 
     // Verificamos si el valor es menor a 0.
-    menor(data[i]);
-    menor(data[i+1]);
-    menor(data[i+2]);
+    data[i] = menor(data[i]);
+    data[i+1]= menor(data[i+1]);
+    data[i+2] = menor(data[i+2]);
   }
 
   //Pinta los datos ya modificados en el canvas.
