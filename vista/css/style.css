@@ -7,7 +7,7 @@
 }
 
 .footer {
-  padding: 60px;
+  padding: 40px;
   text-align: center;
   background: #cfe0e8;
   color: white;
@@ -45,9 +45,7 @@
 }
 
 
-/* Style the buttons that are used to open and close the accordion panel #eee*/
 .accordion {
-  /*background-color: #eee;*/
   background-color: #eee;
   color: #444;
   cursor: pointer;
@@ -59,14 +57,11 @@
   transition: 0.4s;
 }
 
-/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
 .active, .accordion:hover {
-  /*background-color: #ccc;*/
   /*background-color: #c2d4dd;*/
   background-color: #ccc;
 }
 
-/* Style the accordion panel. Note: hidden by default */
 .panel {
   padding: 0 18px;
   background-color: white;
@@ -74,8 +69,6 @@
   overflow: hidden;
 }
 
-
-/* Propiedades de los números. */
 .steps {
   clear: both;
   list-style: none;
@@ -83,7 +76,7 @@
 }
 .steps li {
   margin: 2em 0;
-  padding-top: 2em; /* Solución 1 */
+  padding-top: 2em; 
   display: block;
   position: relative;
   counter-increment: inst;
@@ -105,7 +98,7 @@
   
   padding-top: 0;
   padding-left: 2.25%;
-  left: -5%; /* Solución 1 */
+  left: -5%; 
   top: -0.65em;
   height: 1.35em;
   width: 1.35em;
