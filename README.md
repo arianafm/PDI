@@ -1,6 +1,6 @@
 # PDI
 Proceso Digital de Imágenes | Semestre 2021-2  
-Profesor: Manuel Cristóbal López Michelone. 
+Profesor: Manuel Cristóbal López Michelone.  
 Ayudante: Yessica Martínez Reyes.  
 Ayud. Lab.: César Hernández Solís.
 
