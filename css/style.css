@@ -6,6 +6,14 @@
   font-size: 30px;
 }
 
+.footer {
+  padding: 60px;
+  text-align: center;
+  background: #cfe0e8;
+  color: white;
+  font-size: 30px;
+}
+
 .subtitle{
   color: #b7d7e8;
 }
