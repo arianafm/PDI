@@ -1,142 +1,169 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Proceso Digital de Imágenes</title>
-        <meta charset="UTF-8">
-    </head>
 
-    <body>
-        <div class="titulo">
-            <h1>Proceso digital de imágenes</h1>
-        </div>
-        <!-- "Instrucciones" -->
-        <div class="container">
-            <h2>Instrucciones</h2>
-            <hr>
-            <div class="instrucciones">
-                <b>(1) Escoger la imagen:</b>
-                Utilizar el botón "Seleccionar Archivo" para escoger la imagen.
-                <br>
-            </div>
-            <div class="instrucciones">
-                <b>(2) Aplicar el filtro:</b>
-                Una vez que nuestra imagen aparezca en la tercera sección será necesario
-                presionar uno de los botones para aplicar los filtros. 
-                <br>
-            </div>
-            <div class="instrucciones">
-                <b>(3) Observar el resultado:</b>
-                Podremos observar la imagen original y aquella que sufrió los cambios 
-                aplicados por nuestros filtros, i.e., la imagen alterada.
-            </div>
-            <div class="instrucciones">
-                <b>(4) Descarga tu imagen:</b>
-                Utiliza el botón <i>Descargar</i> para descargar tu imagen alterada.
-            </div>
-            <div class="instrucciones">
-                <i>Nota:</i> Por el momento no tenemos un botón de limpiar imagen, por lo que 
-                en caso de querer agregar otro filtro, será necesario comenzar desde la primera instrucción
-            </div>
+<head>
+    <title>Proceso Digital de Imágenes</title>
+    <meta charset="UTF-8">
+    <!-- Nos ayuda a que todo permanezca en la escala correcta. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Archivo CSS -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
 
+<body>
+    <div class="header">
+        <h1>Proceso Digital de Imágenes</h1>
+        <p>Semestre 2021-2</p>
+    </div>
+
+    <!-- "Instrucciones" -->
+    <div class="container">
+        <h2 class="subtitle">Instrucciones</h2>
+        <hr>
+
+        <ol class="steps">
+            <li>
+                <!-- Paso 1 -->
+                <b>Escoger la imagen:</b>
+                Utilizar el botón "Seleccionar archivo" para escoger la imagen.
+            </li>
             <!-- Botón para escoger la imagen por manipular -->
-            <h4 class="subtitle">(1) Imagen</h4>
-            <div class="divBotonImagen">
-                <span>
+            <div>
+                <span class="btn btn-default">
                     <input type="file" id="imageLoader" name="imageLoader" />
                 </span>
             </div>
 
+            <li>
+                <!-- Paso 2 -->
+                <b>Aplicar el filtro:</b>
+                <!-- Una vez que nuestra imagen aparezca en la tercera sección será necesario
+                presionar uno de los botones para aplicar los filtros. -->
+                Una vez seleccionada la imagen, elige el filtro que deseas aplicar.
+            </li>
+
             <!-- Botones para aplicar los filtros a la imagen actual -->
-            <div id="seccionDos">
-                <h4 class="subtitle">(2) Filtro</h4>
+            <button class="accordion">Tarea 1: Gama de grises, mosaico y brillo.</button>
+            <div class="panel">
+                <p>
                 <div>
-                    <button id="botonL" class="btn btn-default" onclick="limpiarImagen(this)">Limpiar Imagen</button> 
-                </div>
-                <div class="divBotonesFiltro">
-                    <br>
-                    Tarea 1:
-                    <br>
-                    <button id="Gris 1" class="btn btn-danger btn-default" onclick="filtrosT1(this)">Gris 1</button>
-                    <button id="Gris 2" class="btn btn-success btn-default" onclick="filtrosT1(this)">Gris 2</button>
-                    <button id="Gris 3" class="btn btn-primary btn-default" onclick="filtrosT1(this)">Gris 3</button>
-                    <button id="Gris 4" class="btn btn-primary btn-default" onclick="filtrosT1(this)">Gris 4</button>
-                    <button id="Gris 5" class="btn btn-primary btn-default" onclick="filtrosT1(this)">Gris 5</button>
-                    <button id="Gris 6" class="btn btn-primary btn-default" onclick="filtrosT1(this)">Gris 6</button>
-                    <button id="Gris 7" class="btn btn-primary btn-default" onclick="filtrosT1(this)">Gris 7</button>
-                    <button id="Gris 8" class="btn btn-primary btn-default" onclick="filtrosT1(this)">Gris 8</button>
-                    <button id="Gris 9" class="btn btn-primary btn-default" onclick="filtrosT1(this)">Gris 9</button>
-                    
-                    <div class="filtro">
+                    <button id="Gris 1" onclick="filtrosT1(this)">Gris 1</button>
+                    <button id="Gris 2" onclick="filtrosT1(this)">Gris 2</button>
+                    <button id="Gris 3" onclick="filtrosT1(this)">Gris 3</button>
+                    <button id="Gris 4" onclick="filtrosT1(this)">Gris 4</button>
+                    <button id="Gris 5" onclick="filtrosT1(this)">Gris 5</button>
+                    <button id="Gris 6" onclick="filtrosT1(this)">Gris 6</button>
+                    <button id="Gris 7" onclick="filtrosT1(this)">Gris 7</button>
+                    <button id="Gris 8" onclick="filtrosT1(this)">Gris 8</button>
+                    <button id="Gris 9" onclick="filtrosT1(this)">Gris 9</button>
+
+                    <div>
                         <br>
-                        <button id="botonM" class="btn btn-warning btn-default" onclick="filtroMosaico()">Mosaico</button>
-                        
+                        <button id="botonM" onclick="filtroMosaico()">Mosaico</button>
+
                         <b>Tamaño:</b>
-                        <input id="botonTam" class="form-control" type="text">
+                        <input id="botonTam" type="text" size="4">
                     </div>
-                    <div class="slidecontainer">
+
+                    <div>
                         <br>
                         <b>Brillo:</b>
-                        <input type="range" min="-255" max ="255" value="0" class="slider" id="myRange" onclick="brillo(this)" oninput="limpiarImagen()">
-                    </div>                 
+                        <input type="range" min="-255" max="255" value="0" id="myRange" onclick="brillo(this)"
+                            oninput="limpiarImagen()">
+                    </div>
                 </div>
-                <div class="divBotonesFiltro">
-                    <br>
-                    Tarea 2:
-                    <br>
-                    <button id="Alto Contraste" class="btn btn-danger btn-default" onclick="filtrosT2(this)">Alto Contraste</button>
-                    <button id="Inverso" class="btn btn-danger btn-default" onclick="filtrosT2(this)">Inverso</button>
-                     
-                    
-                    <div class="filtro">
+                </p>
+            </div>
+
+            <button class="accordion">Tarea 2: Alto contraste, inverso, componentes RGB y aquellos pertenecientes al
+                tema de convolución.</button>
+            <div class="panel">
+                <p>
+                <div>
+                    <button id="Alto Contraste" onclick="filtrosT2(this)">Alto Contraste</button>
+                    <button id="Inverso" onclick="filtrosT2(this)">Inverso</button>
+                    <button id="softBlur" onclick="filtrosT2(this)">Soft Blur</button>
+                    <button id="blur" onclick="filtrosT2(this)">Blur</button>
+                    <button id="motionBlur" onclick="filtrosT2(this)">Motion Blur</button>
+                    <button id="findEdges" onclick="filtrosT2(this)">Find Edges</button>
+                    <button id="sharpen" onclick="filtrosT2(this)">Sharpen</button>
+                    <button id="emboss" onclick="filtrosT2(this)">Emboss</button>
+
+                    <div>
                         <br>
-                        <button id="componentesRGB" class="btn btn-danger btn-default" onclick="filtrosT2(this)">Componentes RGB</button> 
-                        
+                        <button id="componentesRGB" onclick="filtrosT2(this)">Componentes RGB</button>
+
                         <b>Rojo (0 a 255):</b>
-                        <input id="RGB_Rojo" class="form-control" type="text">
+                        <input id="RGB_Rojo" type="text" size="4">
                         <b>Verde (0 a 255):</b>
-                        <input id="RGB_Verde" class="form-control" type="text">
+                        <input id="RGB_Verde" type="text" size="4">
                         <b>Azul (0 a 255):</b>
-                        <input id="RGB_Azul" class="form-control" type="text">
-                    </div>
-
-                    <br>
-                    <button id="softBlur" class="btn btn-danger btn-default" onclick="filtrosT2(this)">Soft Blur</button>   
-                    <button id="blur" class="btn btn-danger btn-default" onclick="filtrosT2(this)">Blur</button>
-                    <button id="motionBlur" class="btn btn-danger btn-default" onclick="filtrosT2(this)">Motion Blur</button>    
-                    <button id="findEdges" class="btn btn-danger btn-default" onclick="filtrosT2(this)">Find Edges</button>     
-                    <button id="sharpen" class="btn btn-danger btn-default" onclick="filtrosT2(this)">Sharpen</button>      
-                    <button id="emboss" class="btn btn-danger btn-default" onclick="filtrosT2(this)">Emboss</button>         
-                </div>
-            </div>
-
-            <div id="seccionTres">
-                <!-- Canvas que enseña la imagen -->
-                <h4 class="subtitle">(3) Resultado</h4>
-                <div class="textoError"></div>
-                <div class="row"> 
-                    <div class="col-sm-6">               
-                        <div class="divCanvas">
-                            <h6>Imagen Original:</h6>
-                            <canvas id="imageCanvas"></canvas>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">               
-                        <div class="divCanvas">
-                            <h6>Imagen Alterada:</h6>
-                            <canvas id="newImageCanvas"></canvas>
-                        </div>
-                    </div>
+                        <input id="RGB_Azul" type="text" size="4">
                     </div>
                 </div>
+                </p>
             </div>
 
-            <div id="seccionCuatro">
-                <h4 class="subtitle">(4) Descargar</h4>
+            <!-- <button class="accordion">Section 3</button>
+                <div class="panel">
+                  <p>Lorem ipsum...</p>
+                </div> -->
+
+            <!-- -------------------------------------------------------------------------------- -->
+
+            <li>
+                <!-- Paso 3 -->
+                <b>Observar el resultado:</b>
+                Podremos observar la imagen original y aquella que sufrió los cambios
+                aplicados por nuestros filtros, i.e., la imagen alterada.
+            </li>
+            <!-- Canvas que enseña la imagen -->
+            <div class="textoError"></div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div>
+                        <h6><b><i>Imagen Original:</i></b></h6>
+                        <canvas id="imageCanvas"></canvas>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div>
+                        <h6><b><i>Imagen Alterada:</i></b></h6>
+                        <canvas id="newImageCanvas"></canvas>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <li>
+                <!-- Paso 4 -->
+                <b>Limpiar Imagen:</b>
+                Utiliza el botón <i>Limpiar Imagen</i> si deseas agregar un nuevo filtro.
+            </li>
+            <!-- Limpia la imagen de cualquier filtro -->
+            <span class="btn btn-default">
+                <button id="botonL" onclick="limpiarImagen(this)">Limpiar Imagen</button>
+            </span>
+
+            <li>
+                <!-- Paso 5 -->
+                <b>Descarga tu imagen:</b>
+                Utiliza el botón <i>Descargar</i> para descargar tu imagen alterada.
+            </li>
+            <!-- Botón para descargar nuestra imagen -->
+            <span class="btn btn-default">
                 <a id="download" download="Descarga.png">
-                <button type="button" onClick="download()">Descargar</button>
+                    <button type="button" style="color:black;" onClick="download()">Descargar</button>
                 </a>
-            </div>
+            </span>
+
+        </ol>
 
         <script src="index.js"></script>
-    </body>
+        <script src="vista.js"></script>
+</body>
+
 </html>
