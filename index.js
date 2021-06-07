@@ -64,10 +64,6 @@ function download() {
   //download.setAttribute("download","archive.png");
 }
 
-function limpiarImagen() {
-  onReaderLoad(archivo);
-}
-
 // Despliega un pequeño mensaje de error
 // arriba del canvas.
 function error(string) {
@@ -78,4 +74,9 @@ function error(string) {
   // Si "string" es vacío, es porque se quiere borrar
   // cualquier error escrito previamente.
   if (string == "") texto.innerHTML = string;
+}
+
+function limpiarImagen() {
+  onReaderLoad(archivo);
+  error("");
 }

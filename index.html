@@ -106,6 +106,121 @@
                 </p>
             </div>
 
+            <button class="accordion">Tarea 3: Letras, letreros, domino blanco, domino negro y naipes. </button>
+            <div class="panel">
+                <p>
+                <div>
+
+                    <div>
+                        <br>
+                        <button id="colorLetra" onclick="ColorLetra()">Color</button>
+                    
+                        <b>Tamaño:</b>
+                        <input id="T3Tamano" type="text" size="4">
+                    
+                        <b>Letra:</b>
+                        <input id="T3Letra" type="text" size="4" required minlength="1" maxlength="1">
+
+                        <p><small>Una sola letra para formar la imagen a color.</small></p>
+                    </div>
+
+                    <div>
+                        <br>
+                        <button id="ByNLetra" onclick="ByNLetra()">Blanco y negro</button>
+                    
+                        <b>Tamaño:</b>
+                        <input id="T3Tamano2" type="text" size="4">
+                    
+                        <b>Letra:</b>
+                        <input id="T3Letra2" type="text" size="4" required minlength="1" maxlength="1">
+
+                        <p><small>Una sola letra para formar la imagen a blanco y negro.</small></p>
+                    </div>
+
+                    <div>
+                        <br>
+                        <button id="Letras16" onclick="Letras16()">Tonos gris</button>
+                    
+                        <b>Tamaño:</b>
+                        <input id="T3Tamano3" type="text" size="4">
+
+                        <p><small>Se usan 16 letras para simular los 256 tonos.</small></p>
+                    
+                    </div>
+
+                    <div>
+                        <br>
+                        <button id="Letras16Color" onclick="Letras16Color()">Color</button>
+                    
+                        <b>Tamaño:</b>
+                        <input id="T3Tamano4" type="text" size="4">
+
+                        <p><small>Se usan 16 letras para simular los 256 tonos.</small></p>
+                    
+                    </div>
+
+                    <div>
+                        <br>
+                        <button id="Letras16Comb" onclick="Letras16Comb()">Blanco y Negro</button>
+                    
+                        <b>Tamaño:</b>
+                        <input id="T3Tamano5" type="text" size="4">
+
+                        <p><small>Se pasa la imagen a tonos de gris y usan 16 letras para simular los 256 tonos.</small></p>
+                    
+                    </div>
+
+                    <div>
+                        <br>
+                        <button id="Letrero" onclick="Letrero()">Letrero</button>
+                    
+                        <b>Letrero:</b>
+                        <input id="T3Letrero" type="text" size="8" required minlength="1">
+
+                        <p>
+                            <small>Imagen hecha con un letrero.</small>
+                            <br>
+                            <small><b><i>Nota: se recomienda que sea un letrero pequeño.</i></b></small>
+                        </p>
+                        
+                    </div>
+
+                    <div>
+                        <br>
+                        <button id="DominoBlancas" onclick="DominoBlancas()">Domino Blancas</button>
+
+                        <b>Tamaño:</b>
+                        <input id="T3Tamano6" type="text" size="4">
+
+                        <p><small>Imagen con fichas de dominó blancas (con puntos negros).</small></p>
+                    
+                    </div>
+                    
+                    <div>
+                        <br>
+                        <button id="DominoNegras" onclick="DominoNegras()">Domino Negras</button>
+                        <b>Tamaño:</b>
+                        <input id="T3Tamano7" type="text" size="4">
+
+                        <p><small>Imagen con fichas de domino negras (con puntos blancos).</small></p>
+                    
+                    </div>
+
+                    <div>
+                        <br>
+                        <button id="Naipes" onclick="Naipes()">Naipes</button>
+                        <b>Tamaño:</b>
+                        <input id="T3Tamano8" type="text" size="4">
+
+                        <p><small>Imagen con fichas de naipes.</small></p>
+                    
+                    </div>
+
+                </div>
+                </p>
+            </div>
+
+
             <!-- <button class="accordion">Section 3</button>
                 <div class="panel">
                   <p>Lorem ipsum...</p>
@@ -169,6 +284,7 @@
     <script src="index.js"></script>
     <script src="tareas/tarea1.js"></script>
     <script src="tareas/tarea2.js"></script>
+    <script src="tareas/tarea3.js"></script>
     <script src="vista/vista.js"></script>
 </body>
 

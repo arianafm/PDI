@@ -1,3 +1,25 @@
+@font-face {
+  font-family: 'Dominoblanco';
+  src: url(../fonts/Lasvwd__.ttf);
+  font-style: regular;
+}
+
+@font-face {
+  font-family: 'Dominonegro';
+  src: url(../fonts/Lasvbld_.ttf);
+  font-style: regular;
+}
+
+@font-face {
+  font-family: 'Naipesfont';
+  src: url(../fonts/PLAYCRDS.TTF);
+  font-style: regular;
+}
+
+body {
+  font-size: 25px;
+}
+
 .header {
   padding: 60px;
   text-align: center;
@@ -14,7 +36,7 @@
   font-size: 30px;
 }
 
-.subtitle{
+.subtitle {
   color: #b7d7e8;
 }
 
@@ -24,9 +46,9 @@
 }
 
 .textoError {
-    font-family: "Courrier New";
-    font-size: 20px;
-    color: red;
+  font-family: "Courrier New";
+  font-size: 20px;
+  color: red;
 }
 
 .estiloboton {
@@ -43,7 +65,6 @@
 .navbar {
   background-color: #c2d4dd;
 }
-
 
 .accordion {
   background-color: #eee;
@@ -74,40 +95,37 @@
   list-style: none;
   padding-left: 2%;
 }
+
 .steps li {
   margin: 2em 0;
-  padding-top: 2em; 
+  padding-top: 2em;
   display: block;
   position: relative;
   counter-increment: inst;
 }
+
 .steps li::before {
   content: counter(inst);
-  
   background: #87bdd8;
   color: #fff;
-  
   font-size: 1em;
   font-weight: 700;
   font-style: italic;
   text-shadow: 1px 1px #b7d7e8;
-  
   border-radius: 0 0.675em 0.675em 0;
   font-size: 1.5em;
   text-align: center;
-  
   padding-top: 0;
   padding-left: 2.25%;
-  left: -5%; 
+  left: -5%;
   top: -0.65em;
   height: 1.35em;
   width: 1.35em;
   position: absolute;
-  
   transition: all 0.2s ease-in-out;
-  
   z-index: -1;
 }
+
 @media (min-width: 33em) {
   .steps li:before {
     border-radius: 50%;
@@ -120,8 +138,4 @@
     width: 1.35em;
     z-index: -1;
   }
-}
-
-body {
-  font-size: 25px;
 }
