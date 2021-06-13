@@ -20,6 +20,16 @@ body {
   font-size: 25px;
 }
 
+.nodecoration {
+  cursor: default;      
+  text-decoration: none;
+  color: black;
+}
+
+.nodecoration:hover {
+  color: #000;
+}
+
 .header {
   padding: 60px;
   text-align: center;
