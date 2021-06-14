@@ -9,6 +9,10 @@ function MarcaAgua() {
 
     var tam = document.getElementById("T4MarcaAguaTam").value;
 
+    var tipografia = document.getElementById('tipografia').value;
+
+    var estilo = document.getElementById('estiloletra').value;
+
     // Si no se especifica un texto...
     if (texto == "") {
         error("Ingresa un valor en <i>Texto</i>. (Filtro: Marca de agua, Sección: Tarea 4)");
@@ -41,7 +45,8 @@ function MarcaAgua() {
     context.fillStyle = "rgba(255,255,255,.5)"
 
     // Establecemos las propiedades de fuente.
-    context.font = tam + "px Arial";
+    // context.font = tam + "px Arial";
+    context.font = estilo + " " + tam + "px " + tipografia;
 
     // La alineación es relativa a una línea vertical imaginaria en la posición x
     // del texto definido por fillText.
