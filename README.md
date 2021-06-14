@@ -4,6 +4,9 @@ Profesor: Manuel Cristóbal López Michelone.
 Ayudante: Yessica Martínez Reyes.  
 Ayud. Lab.: César Hernández Solís.
 
+## URL del proyecto ##  
+[https://arianafm.github.io/PDI/](https://arianafm.github.io/PDI/)
+
 ## Filtros ##  
 - **Tarea 1: Gama de grises, mosaico y brillo.**
   - Gris 1:
@@ -56,9 +59,9 @@ Ayud. Lab.: César Hernández Solís.
     Imagen con fichas de domino negras (con puntos blancos).
   - Naipes:
     Imagen con fichas de naipes.
-
-## URL del proyecto ##  
-[https://arianafm.github.io/PDI/](https://arianafm.github.io/PDI/)
+- **Tarea 4: Marca de agua.**
+  - Marca de agua:
+    Filtro para poner una marca de agua en la imagen.
 
 ## Autor :busts_in_silhouette:
 _Nombre:_ Ariana de Belen Fernández Montenegro  
