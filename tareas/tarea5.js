@@ -17,7 +17,7 @@ auxcanvas.setAttribute("height", tam);
 
 var imageData;
 
-function recursivo(color) {
+function recursivo(aux) {
 
     var context = newCanvas.getContext("2d");
     var imageData_newCanvas = context.getImageData(0, 0, newCanvas.width, newCanvas.height);
@@ -115,7 +115,7 @@ function recursivo(color) {
 
             imageData = auxcontext.getImageData(0, 0, auxcanvas.width, auxcanvas.height);
         
-            if (color) {
+            if (aux) {
                 rec_color(r,g,b)
             } else {
                 rec_gris(r);
