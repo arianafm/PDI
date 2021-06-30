@@ -62,7 +62,9 @@ Ayud. Lab.: César Hernández Solís.
 - **Tarea 4: Marca de agua.**
   - Marca de agua:
     Filtro para poner una marca de agua en la imagen.
-
+- **Tarea 5: Marca de agua.**
+   - Imágenes recursivas (tonos de gris)
+   - Imágenes recursivas (colores reales)
 ## Autor :busts_in_silhouette:
 _Nombre:_ Ariana de Belen Fernández Montenegro  
 _Número de cuenta:_ 316087698  
