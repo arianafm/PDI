@@ -16,9 +16,18 @@
   font-style: regular;
 }
 
-#minicanvas{
+#auxcanvas{
   visibility: hidden;
+}
 
+#auxcanvas_st{
+  visibility: hidden;
+}
+
+#aux{
+  visibility: hidden;
+  width: 0%;
+  height: 0%;
 }
 
 body {
