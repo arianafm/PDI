@@ -65,6 +65,13 @@ Ayud. Lab.: César Hernández Solís.
 - **Tarea 5: Marca de agua.**
    - Imágenes recursivas (tonos de gris)
    - Imágenes recursivas (colores reales)
+- **Tarea 6: Semitonos.**
+   - Semitono 1
+   - Semitono 2
+   - Semitono 3
+- **Tarea 7: Semitonos.**
+   - Máximo
+   - Mínimo
 ## Autor :busts_in_silhouette:
 _Nombre:_ Ariana de Belen Fernández Montenegro  
 _Número de cuenta:_ 316087698  
