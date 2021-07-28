@@ -81,7 +81,7 @@ async function semiTono (semitono) {
 
     function auxColor(k, j, width) {
         var i = (k + j * width) * 4;
-            return { R: i, G: i + 1, B: i + 2};
+        return { R: i, G: i + 1, B: i + 2};
     }
 
     while (x < width) {
