@@ -75,7 +75,7 @@ Ayud. Lab.: César Hernández Solís.
 - **Tarea 8: Dithering.**
    - Dithering Random
    - Dithering Ordenado 
-   - DitheringDisperso
+   - Dithering Disperso
    
 ## Autor :busts_in_silhouette:
 _Nombre:_ Ariana de Belen Fernández Montenegro  
