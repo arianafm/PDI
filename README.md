@@ -72,6 +72,11 @@ Ayud. Lab.: César Hernández Solís.
 - **Tarea 7: Semitonos.**
    - Máximo
    - Mínimo
+- **Tarea 8: Dithering.**
+   - Dithering Random
+   - Dithering Ordenado 
+   - DitheringDisperso
+   
 ## Autor :busts_in_silhouette:
 _Nombre:_ Ariana de Belen Fernández Montenegro  
 _Número de cuenta:_ 316087698  
